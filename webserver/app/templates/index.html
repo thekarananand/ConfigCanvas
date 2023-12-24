@@ -1,13 +1,27 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>
-        ConfigCanvas
-    </h1>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script
+			  src="https://code.jquery.com/jquery-3.7.1.min.js"
+			  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+			  crossorigin="anonymous"></script>
+        {% csrf_token %}
+        <section id="device">
+            <ul class="device_list"></ul>
+            <form action="{% url 'api_inventory' %}">
+                <input type="text" placeholder="IP Address" name="NewIP">
+                <input type="text" placeholder="SSH Username" name="NewUsername">
+                <input type="password" placeholder="Password" name="NewPassword">
+                <input type="submit" value="+">
+            </form>
+        </section>
+    </head>
+    <body>
+    </body>
+    <script src="{% static 'main.js' %}" defer></script>
 </html>
